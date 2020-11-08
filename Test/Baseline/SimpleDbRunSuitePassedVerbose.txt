@@ -1,0 +1,17 @@
+ 
+    Suite: AASuite1. Tests: 2. Passed: 2. Ignored: 0. Failed: 0
+        Test: SQLTest_AASuite1#TestA. Passed
+            Log: This is SQLTest_SETUP_AASuite1
+            Log: This is SQLTest_AASuite1#TestA
+            Pass: Assert.Equals passed. [Test passing Assert.Equals] Test value: 1 (int). Actual value: 1 (int)
+            Log: This is SQLTest_TEARDOWN_AASuite1
+        Test: SQLTest_AASuite1#TestB. Passed
+            Log: This is SQLTest_SETUP_AASuite1
+            Log: This is SQLTest_AASuite1#TestB
+            Pass: Assert.Equals passed. [Test passing Assert.Equals] Test value: 1 (int). Actual value: 1 (int)
+            Log: This is SQLTest_TEARDOWN_AASuite1
+ 
+Total suites: 1. Total tests: 2. Test passed: 2. Test ignored: 0. Test failed: 0.
+ 
+TST Status: Passed
+ 

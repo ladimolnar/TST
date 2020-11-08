@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<TST status="Failed" >
+  <SystemErrors>
+  </SystemErrors>
+  <Suites>
+    <Suite suiteName="Suite2" testsCount="1" passedCount="0" ignoredCount="0" failedCount="1" >
+      <Tests>
+        <Test name="SQLTest_Suite2#TestB" status="Failed" >
+          <Log entryType="Log">This is SQLTest_SETUP_Suite2</Log>
+          <Log entryType="Log">This is SQLTest_Suite2#TestB</Log>
+          <Log entryType="Failure">Assert.Equals failed. [Test failing Assert.Equals] Test value: 1 (int). Actual value: 2 (int)</Log>
+          <Log entryType="Log">This is SQLTest_TEARDOWN_Suite2</Log>
+        </Test>
+      </Tests>
+    </Suite>
+  </Suites>
+</TST>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<TST status="Passed" >
+  <SystemErrors>
+  </SystemErrors>
+  <Suites>
+    <Suite suiteName="AASuite1" testsCount="2" passedCount="2" ignoredCount="0" failedCount="0" >
+      <Tests>
+        <Test name="SQLTest_AASuite1#TestA" status="Passed" >
+        </Test>
+        <Test name="SQLTest_AASuite1#TestB" status="Passed" >
+        </Test>
+      </Tests>
+    </Suite>
+  </Suites>
+</TST>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<TST status="Passed" >
+  <SystemErrors>
+  </SystemErrors>
+  <Suites>
+    <Suite suiteName="SuiteIgnored" testsCount="2" passedCount="0" ignoredCount="2" failedCount="0" >
+      <Tests>
+        <Test name="SQLTest_SuiteIgnored#TestA" status="Ignored" >
+          <Log entryType="Log">This is SQLTest_SETUP_SuiteIgnored</Log>
+          <Log entryType="Ignore">Ignore suite SuiteIgnored</Log>
+        </Test>
+        <Test name="SQLTest_SuiteIgnored#TestB" status="Ignored" >
+          <Log entryType="Log">This is SQLTest_SETUP_SuiteIgnored</Log>
+          <Log entryType="Ignore">Ignore suite SuiteIgnored</Log>
+        </Test>
+      </Tests>
+    </Suite>
+  </Suites>
+</TST>

@@ -1,0 +1,9 @@
+ 
+    Suite: Suite2. Tests: 1. Passed: 0. Ignored: 0. Failed: 1
+        Test: SQLTest_Suite2#TestB. Failed
+            Failure: Assert.Equals failed. [Test failing Assert.Equals] Test value: 1 (int). Actual value: 2 (int)
+ 
+Total suites: 1. Total tests: 1. Test passed: 0. Test ignored: 0. Test failed: 1.
+ 
+TST Status: Failed
+ 

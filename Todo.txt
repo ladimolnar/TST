@@ -1,0 +1,174 @@
+
+Next ver:
+
+. Add sp procedure to the master for running the Unit Tests
+  http://tst.codeplex.com/workitem/10161
+
+*** Update the doc files
+
+. @@@, !!!
+
+. Deploy. See DeploymentSteps.txt
+
+. Update the TST home page: notice the TST.Assert.Ignore API and all new APIs
+
+=================================================
+
+. Suggested on the discussion forum: 
+   Why don't you utilize a query construct that is scalable?  The code in Internal.GenerateComparisonSQLQuery utilizes joins to compare the data, 
+   which is the slowest method that could be used.  It magnifies as the size of the data increases and several hundred thousand rows 
+   is becoming a trivial data set,  Instead of doing all of the joining, you can instead do the following:
+      SELECT TOP 1 *
+      FROM (SELECT <columns>
+              FROM TableA
+              EXCEPT
+              SELECT <columns>
+              FROM TableB) a
+
+      SELECT TOP 1 *
+      FROM (SELECT <columns>
+              FROM TableB
+              EXCEPT
+              SELECT <columns>
+              FROM TableA) a
+
+   If either query results a row of data, the tables do not match.  This will run in a fraction of the time as the existing code.  It also involves much less code in the Internal.GenerateComparisonSQLQuery stored procedure.
+
+ 
+
+
+Pri 1.
+
+   *** Doc bug: When the @IgnoredColumns parameter is described the link to the section is pointing the wrong place.
+
+====================================================  
+      
+Next Build
+
+   - Allow TST.Assert.TableEquals to apply Like when comparing tables.
+   - Check if I can run the 'Anonymous' suite vua RunSuite.
+   - Check if I can define a suite called 'Anonymous'
+
+   - Do not allow TST API or entry points to be called inside of a transaction.
+   - Use FOR XML
+
+   Error cases:
+      -- RunSuite:   No tests defined in the given suite 
+      -- RunTest:    Unknown DB
+      -- RunTest:    Unknown test
+      -- RunTest:    the given test does not follow the TST naming convention
+      -- RunTest:    The given test has two or more # in it
+      -- RunSuite:   The given suite name has one or more # in it
+      -- RunAll, RunSuite, RunTest: There were TST tests with invalid names (containing two or more #, containing an empty suite name as in SQLTest_SETUP or containing anempty testname as in SQLTest_ or SQLTestSuiteName#)
+      -- RunSuite has to find only one suite and only the tests belonging to that suite
+      -- RunTest for a test in a suite with two tests has to find only one suite and only one test.
+      -- RunTest for a test in an anonymous suite has to find only one anonymous suite and only one test.
+      -- RunTest for a test in an anonymous suite has to find only one anonymous suite and only one test.
+
+   - Get rid of DropTestTables?
+   - Set a job that will clean old transitory data
+   - In the doc add a section about the FAQ
+   - Validate that when RunTest is called, the setup and teardown will be executed.
+
+   SetTSTCheckMaster.sql
+
+      . The calls to TST.Internal.CleanSessionData must be moved in the TestSessionTeardown.
+        When a test here fails, CleanSessionData is not called and old data remains in TST tables.
+      . Have validation for all cases of calls to SetConfiguration
+      . Have validation for a case where the tested sproc raises an error that stops the connection (highest severity level allowed).
+
+   - Review the cases in SetTSTCheckTran.sql
+      Simplify and comment where appropiate.
+      Add: EXEC TST.dbo.Log  'This log should not be executed' where appropiate
+
+   -- Examine indexes of all tables involved in VIEW View.TSTResults.
+   -- Examine indexes of all tables.
+   -- Need to test SFN_GetCountOfFailedTestsInSuite. It was wrong before. (We should count tests not entries. Fixed.)
+   -- document @TargetTestName param in sproc PrepareTestInformation
+
+
+   - Add uniqueidentifier to tests for AssertEquals / AssertNotEquals
+   - Test AssertTableEmpty. Go through all test like for other asserts. Make sure Null is used for all parameters.
+   - Allow % in @ExpectedError for RegisterExpectedError
+   List of cases in SetTSTCheckTran.sql
+      OK    NoTransactions
+
+      OK    Proc_Test_TranRollback
+      OK    Proc_Test_TranRollbackSRDisabled
+      OK    Proc_Test_Multi_TranRollback
+      OK    Proc_Test_Multi_TranRollbackSRDisabled
+      OK    Proc_Test_TranCommit
+      OK    Proc_Test_TranBegin
+      OK    Test_TranBeginSRDisabled
+
+      OK    Proc_Setup_TranRollback
+      OK    Proc_Setup_TranRollbackSRDisabled
+      Proc_Setup_Multi_TranRollback
+      Proc_Setup_Multi_TranRollbackSRDisabled
+      Proc_Setup_TranCommit
+      OK    Proc_Setup_TranBegin
+      Proc_Setup_TranBeginSRDisabled
+
+      OK    Proc_Teardown_TranRollback
+      OK    Proc_Teardown_TranRollbackSRDisabled
+      Proc_Teardown_MultiTranRollback
+      Proc_Teardown_MultiTranRollbackSRDisabled
+      Proc_Teardown_TranCommit
+      Proc_Teardown_TranBegin
+      Proc_Teardown_TranBeginSRDisabled
+
+      OK    Trigger_NoTransactions
+
+      OK    Trigger_Test_TranRollback
+      OK    Trigger_Test_TranRollbackSRDisabled
+      OK    Trigger_Test_Multi_TranRollback
+      OK    Trigger_Test_Multi_TranRollbackSRDisabled
+      OK    Trigger_Test_TranCommit
+      OK    Trigger_Test_TranBegin
+      OK    Trigger_Test_TranBeginSRDisabled
+
+      Trigger_Setup_TranRollback
+      Trigger_Setup_TranRollbackSRDisabled
+      OK    Trigger_Setup_Multi_TranRollback
+      OK    Trigger_Setup_Multi_TranRollbackSRDisabled
+      Trigger_Setup_TranCommit
+      Trigger_Setup_TranBegin
+      Trigger_Setup_TranBeginSRDisabled
+
+      Trigger_Teardown_TranRollback
+      Trigger_Teardown_TranRollbackSRDisabled
+      OK    Trigger_Teardown_Multi_TranRollback
+      ok    Trigger_Teardown_Multi_TranRollbackSRDisabled
+      Trigger_Teardown_TranCommit
+      Trigger_Teardown_TranBegin
+      Trigger_Teardown_TranBeginSRDisabled
+
+====================================================  
+Next Ver
+
+   - Add level and severity to RegisterExpectedError.
+
+   - Add a tutorial. A simple TDD example.
+   - Create a Results.xsd and a XSLT
+   - AssertCompareTables:
+      - Add an optional parameter that indicates the ignored column(s)
+      - Improve the fail message from AssertCompareTables in case of binary columns being different.
+      - Improve the fail message from AssertCompareTables in case of timestamp columns being different.
+      - Allow custom types for columns in the Actual/Expected temp tables 
+      - Allow error margins per column when comparing data tables.
+      - Allow columns of type XML when using AssertCompareTables.
+   - (?) Ability of passing data between SETUP, Test and TEARDOWN. An optional OUT parameter (Table or varchar(max) or XML) with a default value of NULL 
+   - (?) I could save some special entries in a log table after the setup/test/teardown. 
+     AT the end if those entries won't be there I could issue an errors about the user managing transactions in a way 
+     that can rollback TST log entries.
+   - (?) We need a TestSessionSetup/TestSessionTeardown. 
+
+   - If one session creates a local temp table with a PK, the temp table is local in scope but not the PK. 
+     Another user that will try to create the same thing and use the same name for the PK will fail. 
+     We have to recomend users howto create PK (simple and composite)
+   - Trap errors related to PK creation failing. Give some more hints why it may happen: 
+      - nullable columns
+      - concurent test sessions that use the same name for PK
+      - Forgot to drop the temp tables
+   -- If strings like actual and expected values that are displayed in the log entries are too long we may have to truncate them in the log entry
+

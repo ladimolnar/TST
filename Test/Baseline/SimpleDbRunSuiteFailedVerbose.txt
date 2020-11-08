@@ -1,0 +1,22 @@
+ 
+    Suite: Suite2. Tests: 3. Passed: 1. Ignored: 1. Failed: 1
+        Test: SQLTest_Suite2#TestA. Passed
+            Log: This is SQLTest_SETUP_Suite2
+            Log: This is SQLTest_Suite2#TestA
+            Pass: Assert.Equals passed. [Test passing Assert.Equals] Test value: 1 (int). Actual value: 1 (int)
+            Log: This is SQLTest_TEARDOWN_Suite2
+        Test: SQLTest_Suite2#TestB. Failed
+            Log: This is SQLTest_SETUP_Suite2
+            Log: This is SQLTest_Suite2#TestB
+            Failure: Assert.Equals failed. [Test failing Assert.Equals] Test value: 1 (int). Actual value: 2 (int)
+            Log: This is SQLTest_TEARDOWN_Suite2
+        Test: SQLTest_Suite2#TestC. Ignored
+            Log: This is SQLTest_SETUP_Suite2
+            Log: This is SQLTest_Suite2#TestC
+            Ignore: Ignore SQLTest_Suite2#TestC
+            Log: This is SQLTest_TEARDOWN_Suite2
+ 
+Total suites: 1. Total tests: 3. Test passed: 1. Test ignored: 1. Test failed: 1.
+ 
+TST Status: Failed
+ 

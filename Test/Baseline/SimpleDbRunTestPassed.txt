@@ -1,0 +1,8 @@
+ 
+    Suite: Suite2. Tests: 1. Passed: 1. Ignored: 0. Failed: 0
+        Test: SQLTest_Suite2#TestA. Passed
+ 
+Total suites: 1. Total tests: 1. Test passed: 1. Test ignored: 0. Test failed: 0.
+ 
+TST Status: Passed
+ 

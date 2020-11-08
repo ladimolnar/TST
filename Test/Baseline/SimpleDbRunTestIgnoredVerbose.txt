@@ -1,0 +1,12 @@
+ 
+    Suite: Suite2. Tests: 1. Passed: 0. Ignored: 1. Failed: 0
+        Test: SQLTest_Suite2#TestC. Ignored
+            Log: This is SQLTest_SETUP_Suite2
+            Log: This is SQLTest_Suite2#TestC
+            Ignore: Ignore SQLTest_Suite2#TestC
+            Log: This is SQLTest_TEARDOWN_Suite2
+ 
+Total suites: 1. Total tests: 1. Test passed: 0. Test ignored: 1. Test failed: 0.
+ 
+TST Status: Passed
+ 

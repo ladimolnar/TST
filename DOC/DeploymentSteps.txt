@@ -1,0 +1,29 @@
+
+
+1. Review all TODO, BUGBUG, @@@, !!!. 
+
+2. Review changes. 
+
+3. Increment the version. See TST.bat, TST_MajorVersion and TST_MinorVersion
+
+4. Change the version in the DOC file. Generate a new TST.PDF and TST.mht.
+
+5. Commit all changes in SVN.
+
+6. Run TSTCheck.bat
+
+7. Make sure that no TST related database survive in the SQL Server except the TST database.
+
+8. Run CreatePackage.bat and follow the directions.
+   In case of errors fix them in main and go back to step 5.
+
+9. Create a zip file out of the folder populated by CreatePackage.bat 
+
+10. Deploy the new zip file along with the new doc files.
+
+10. IMPORTANT! Create a new tag. Update the tag under the Test SVN client.
+   To create a tag use svn copy. For example:
+   svn copy svn://localhost/TST/trunk svn://localhost/TST/tags/Version_X_Y
+   Note: to list the content of a SVN repository run: svn ls -R svn://localhost/
+
+

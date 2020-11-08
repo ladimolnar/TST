@@ -1,0 +1,13 @@
+ 
+    Suite: SuiteIgnored. Tests: 2. Passed: 0. Ignored: 2. Failed: 0
+        Test: SQLTest_SuiteIgnored#TestA. Ignored
+            Log: This is SQLTest_SETUP_SuiteIgnored
+            Ignore: Ignore suite SuiteIgnored
+        Test: SQLTest_SuiteIgnored#TestB. Ignored
+            Log: This is SQLTest_SETUP_SuiteIgnored
+            Ignore: Ignore suite SuiteIgnored
+ 
+Total suites: 1. Total tests: 2. Test passed: 0. Test ignored: 2. Test failed: 0.
+ 
+TST Status: Passed
+ 

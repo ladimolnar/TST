@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<TST status="Passed" >
+  <SystemErrors>
+  </SystemErrors>
+  <Suites>
+    <Suite suiteName="Anonymous" testsCount="9" passedCount="9" ignoredCount="0" failedCount="0" >
+      <Tests>
+        <Test name="SQLTest_AssertSample" status="Passed" >
+        </Test>
+        <Test name="SQLTest_ExpectedError" status="Passed" >
+        </Test>
+        <Test name="SQLTest_GetSampleTable" status="Passed" >
+        </Test>
+        <Test name="SQLTest_QFn_GetEmployeeAllReports" status="Passed" >
+        </Test>
+        <Test name="SQLTest_QFn_GetSampleTable" status="Passed" >
+        </Test>
+        <Test name="SQLTest_QFn_TinyintToBinary" status="Passed" >
+        </Test>
+        <Test name="SQLTest_RolledBackOperation" status="Passed" >
+        </Test>
+        <Test name="SQLTest_SampleView" status="Passed" >
+        </Test>
+        <Test name="SQLTest_SimplestTest" status="Passed" >
+        </Test>
+      </Tests>
+    </Suite>
+    <Suite suiteName="EmployeeOperations" testsCount="2" passedCount="2" ignoredCount="0" failedCount="0" >
+      <Tests>
+        <Test name="SQLTest_EmployeeOperations#DeleteEmployee" status="Passed" >
+        </Test>
+        <Test name="SQLTest_EmployeeOperations#UpdateEmployee" status="Passed" >
+        </Test>
+      </Tests>
+    </Suite>
+  </Suites>
+</TST>
