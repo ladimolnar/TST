@@ -1,7 +1,9 @@
 # T.S.T. a T-SQL Test Tool
 
-T.S.T. was originally created on CodePlex. Since CodePlex was retired, T.S.T. was moved to Github. At present it is no longer maintained but feel free to fork and maintain your own version.
-
+<p style="color:red;">
+T.S.T. was originally created on CodePlex. Since CodePlex was retired, T.S.T. was moved to Github. 
+At present it is <strong>NO LONGER MAINTAINED</strong> but feel free to fork and maintain your own version.
+</p>
 
 ## Welcome to T.S.T.
 
