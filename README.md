@@ -24,13 +24,11 @@ The tool itself is written in T-SQL and provides an API similar to those provide
 - Does not have any dependencies besides SQL Server.
 - Very small learning curve for someone already familiar with T-SQL.
 
-**Current release:** Version 1.9
-
 **Complete documentation including a Quick Start section:**
 
-- PDF format: TST.pdf
-- HTML format: TST.mht
-- Word 2010 file: TST.docx
+- PDF format: [TST.pdf](Doc/TST.pdf)
+- HTML format: [TST.mht](Doc/TST.mht)
+- Word 2010 file: [TST.docx](Doc/TST.docx)
 
 **7 minutes video demo:** http://www.youtube.com/watch?v=bLtK20bl7G4
 
