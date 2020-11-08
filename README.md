@@ -26,9 +26,9 @@ The tool itself is written in T-SQL and provides an API similar to those provide
 
 **Complete documentation including a Quick Start section:**
 
-- PDF format: [TST.pdf](Doc/TST.pdf)
-- HTML format: [TST.mht](Doc/TST.mht)
-- Word 2010 file: [TST.docx](Doc/TST.docx)
+- PDF format: [TST.pdf](DOC/TST.pdf)
+- HTML format: [TST.mht](DOC/TST.mht)
+- Word 2010 file: [TST.docx](DOC/TST.docx)
 
 **7 minutes video demo:** http://www.youtube.com/watch?v=bLtK20bl7G4
 
